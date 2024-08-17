@@ -62,7 +62,7 @@ Once the package is installed, we can import the main widget by adding the follo
 #### Usage
 
 ```js
-import Widget from "druid-ogold-rn-sdk";
+import Widget, { getWidgetInfo } from "druid-ogold-rn-sdk";
 ```
 
 #### Status Widget
