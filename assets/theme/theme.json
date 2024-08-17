@@ -1,0 +1,30 @@
+{
+  "colors": {
+    "primary": "#FFFFFF",
+    "onPrimary": "#BEBEBE",
+    "primaryContainer": "#d8a345",
+    "onPrimaryContainer": "#1e201f",
+    "secondary": "#e8c972",
+    "onSecondary": "#d8a345",
+    "secondaryContainer": "#ffffff",
+    "onSecondaryContainer": "#FFDEAC",
+    "error": "#BA1A1A",
+    "surface": "#646361",
+    "surfaceVariant": "#3b3b3b",
+    "outline": "#968E98",
+    "fieldInput": "#3b3b3b",
+    "outlineVariant": "#4A454E",
+    "background": "#1e1e1e",
+    "onBackground": "#E7E1E5",
+    "tertiary": "#1e201f",
+    "pending": "#40ba62",
+    "success": "#36BO43",
+    "textInputBackground": "#3b3d3c"
+  },
+  "components": {
+    "TextInput": {
+      "backgroundColor": "#3b3d3c",
+      "borderColor": "#000"
+    }
+  }
+}

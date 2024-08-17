@@ -1,37 +1,49 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Stack } from "expo-router";
+import { PaperProvider } from "react-native-paper";
+import DarkTheme from "../assets/theme/theme.json";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+const theme = {
+  ...DarkTheme,
+  myOwnProperty: true,
+  colors: {
+    ...DarkTheme.colors,
+    success: "#98FB98", // green
+    inactive: "#A9A9A9", // stale metal color
+    pending: "#FFBF00", // amber
+    progress: "#ADD8E6", // light blue
+    error: "#E57373", // light red
+  },
+};
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
+/**
+ * Stack provides stack navigation, giving us back button, title, animation
+ * @returns
+ * @returns
+ */
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+    <PaperProvider theme={theme}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen
+          name="index"
+          options={{
+            contentStyle: {
+              backgroundColor: theme.colors.background,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="onboard"
+          options={{
+            contentStyle: {
+              backgroundColor: theme.colors.background,
+            },
+          }}
+        />
       </Stack>
-    </ThemeProvider>
+    </PaperProvider>
   );
 }
